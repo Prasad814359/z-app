@@ -1,0 +1,16 @@
+<div class="container dashboard">
+    <div class="d-flex flex-row align-items-center">
+        <h1 class="display-4">Job status overview</h1>
+    </div>
+
+    <div class="card-wrapper">
+        <div class="card" *ngFor="let status of statusList" (click)="navigateToJob(status)">
+            <div class="c-r1">
+                <span>{{ statusData[status] ? statusData[status] : '-'}}</span>
+            </div>
+            <div class="c-r2">
+                <span>{{status ? status : '-'}}</span>
+            </div>
+        </div>
+    </div>
+</div>

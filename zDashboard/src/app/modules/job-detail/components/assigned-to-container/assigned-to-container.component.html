@@ -1,0 +1,13 @@
+<div class="row assigned-to-container p-3">
+    <div class="col-12">
+        <div class="row">
+            <span class="title-txt">Assigned To</span>
+        </div>
+        <div class="row mt-2" style="max-height: 50vh;overflow-y: scroll;">
+            <div class="col-12 px-0">
+                <assigned-to-card *ngFor="let assignTo of jobDetail.assigned_to"
+                [assignTo]="assignTo"></assigned-to-card>
+            </div>
+        </div>
+    </div>
+</div>

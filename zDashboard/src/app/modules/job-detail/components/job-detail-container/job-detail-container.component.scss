@@ -1,0 +1,24 @@
+.job-detail-container {
+    background-color: #fff!important;
+    box-shadow: 0 3px 6px hsla(0,0%,41.2%,.19),0 1px 4px hsla(0,0%,41.2%,.19);
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+
+    .title-txt {
+        font-weight: 400;
+        color: #8b95a5;
+        font-size: 14px;
+    }
+
+    .value-txt {
+        font-weight: 500;
+        color: #45546e;
+        font-size: 14px;
+    }
+
+    .main-title-txt {
+        color: #fd5000;
+        font-weight: 500;
+        font-size: 15px;
+    }
+}

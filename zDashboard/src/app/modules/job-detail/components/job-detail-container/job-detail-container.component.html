@@ -1,0 +1,56 @@
+<div class="row job-detail-container p-3">
+    <div class="col-12">
+        <div class="row">
+            <span class="main-title-txt">Job Detail</span>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="row my-3">
+                    <div class="col-lg-4 col-md-6 my-2">
+                        <div class="row title-txt">
+                            Job ID
+                        </div>
+                        <div class="row value-txt">
+                            {{jobDetail?.job_id ? jobDetail.job_id : '-'}}
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 my-2">
+                        <div class="row title-txt">
+                            Job Name
+                        </div>
+                        <div class="row value-txt">
+                            {{jobDetail?.name ? jobDetail.name : '-'}}
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 my-2">
+                        <div class="row title-txt">
+                            Status
+                        </div>
+                        <div class="row value-txt">
+                            {{jobDetail?.status ? jobDetail.status : '-'}}
+                        </div>
+                    </div>
+                </div>
+                <div class="row my-3">
+                    <div class="col-lg-4 col-md-6 my-2">
+                        <div class="row title-txt">
+                            Customer Name
+                        </div>
+                        <div class="row value-txt">
+                            {{jobDetail?.customer ? jobDetail.customer : '-'}}
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 my-2">
+                        <div class="row title-txt">
+                            Location
+                        </div>
+                        <div class="row value-txt">
+                            {{jobDetail?.area ? jobDetail.area : '-'}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
