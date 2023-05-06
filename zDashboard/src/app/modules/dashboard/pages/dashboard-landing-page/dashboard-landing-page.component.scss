@@ -1,10 +1,10 @@
 .dashboard {
-
+    margin-top: 12%;
     .card-wrapper{
         display: flex;
         flex-wrap: wrap;
-        gap: 0.7rem;
-
+        gap: 10px;
+        
         // .card :hover {
         //     background-color: #cf0001;
         // }
@@ -13,37 +13,41 @@
             min-width: 190px;
             max-width: 300px;
             height: 100px;
-            align-items: center;
             justify-content: center;
             flex: 1;
-            border-left: 2px solid #cf0001;
             cursor: pointer;
+            background-color: #fff;
 
-            .c-r1{
+            .c-r2{
     
                 display: flex;
                 align-items: center;
-    
-                mat-icon{
-                    color: #df514c;
-                    margin-right: 0.5rem;
-                }
-                .done{
-                    color: #68bf68 !important;
-                }
+
                 span{
                     font-weight: 500;
-                    font-size: 23px;
+                    font-size: 28px;
                 }
             }
-            .c-r2{
+            .c-r1{
                 span{
                     padding-top: 16px;
-                    color: gray;
+                    color: #45546e;
                     display: inline-block;
+                    font-size: 13px;
+                    font-weight: 500;
                 }
             }
         }
+
+        .card:hover {
+            background-color: #fafafa;
+        }
+
     }
 
+    .sub-title {
+        color: #fd5000;
+        font-weight: 500;
+        font-size: 15px;
+    }
 }

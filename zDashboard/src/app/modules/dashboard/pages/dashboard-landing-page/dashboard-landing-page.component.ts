@@ -20,6 +20,7 @@ export class DashboardLandingPageComponent implements OnInit,OnDestroy {
   statusData : any = {}
   statusList: any = []
   isLoaderActive : boolean = false
+  totalJobCount : number = 0
   $onDestroy = new Subject<void>();
   
 
@@ -41,6 +42,11 @@ export class DashboardLandingPageComponent implements OnInit,OnDestroy {
 
   formatData() {
     this.statusList = Object.keys(this.statusData)
+    let total = 0
+    this.statusList.forEach((e: string) => {
+      total += this.statusData[e]
+    });
+    this.totalJobCount = total
   }
 
   navigateToJob(status: string) {

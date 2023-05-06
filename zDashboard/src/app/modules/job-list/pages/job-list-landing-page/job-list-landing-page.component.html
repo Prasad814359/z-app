@@ -1,34 +1,28 @@
 <div class="container job-list">
-    <div class="d-flex flex-row align-items-center">
-        <h1 class="display-4">Job List</h1>
+  <div class="d-flex flex-row align-items-center justify-content-between">
+    <!-- <h1 class="display-4">Job List</h1> -->
+    <div class="title-txt">
+      <h3>Job List</h3>
     </div>
+    <div>
+      <div class="btn-group">
+        <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{selectedFilter ? selectedFilter : 'Select One'}}
+        </button>
+        <div class="dropdown-menu">
+            <button class="dropdown-item" type="button">
+                Started
+            </button>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    <div class="table-layout row">
-        <table class="table table-hover">
-            <thead>
-              <tr>
-                <th scope="col">Job Id</th>
-                <th scope="col">Job Name</th>
-                <th scope="col">Customer</th>
-                <th scope="col">Status</th>
-                <th scope="col">Area</th>
-                <th scope="col">Assigned To</th>
-              </tr>
-            </thead>
-            <tbody>
-                <tr scope="row" class="table-row" *ngFor="let r of jobList" (click)="navigateToJobDetail(r['job_id'])">
-                    <td scope="col">{{ r['job_id'] ? r['job_id'] : '-' }}</td>
-                    <td scope="col">{{ r['name'] ? r['name'] : '-' }}</td>
-                    <td scope="col">{{ r['customer'] ? r['customer'] : '-' }}</td>
-                    <td scope="col">{{ r['status'] ? r['status'] : '-' }}</td>
-                    <td scope="col">{{ r['area'] ? r['area'] : '-' }}</td>
-                    <td scope="col">
-                        <tr *ngFor="let person of r['assigned_to']">
-                            {{ person ? person : '-' }}
-                        </tr>
-                    </td>
-                </tr>
-            </tbody>
-          </table>
-    </div>
+  <job-list-card
+    [colList]="colList"
+    [jobList]="jobList"
+    (onCardClick)="navigateToJobDetail($event)"
+  >
+  </job-list-card>
+
 </div>

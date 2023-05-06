@@ -17,6 +17,52 @@ export class JobListLandingPageComponent implements OnInit,OnDestroy {
     private router: Router
   ) { }
 
+  colList: any = [
+    {
+      colName: 'Job Id',
+      key_name: 'job_id',
+      width: 6,
+      type: 'text',
+      isActive: true,
+    },
+    {
+      colName: 'Job Name',
+      key_name: 'name',
+      width: 10,
+      type: 'text',
+      isActive: true,
+    },
+    {
+      colName: 'Customer',
+      key_name: 'customer',
+      width: 8,
+      type: 'text',
+      isActive: true,
+    },
+    {
+      colName: 'Status',
+      key_name: 'status',
+      width: 8,
+      type: 'text',
+      isActive: true,
+    },
+    {
+      colName: 'Area',
+      key_name: 'area',
+      width: 8,
+      type: 'text',
+      isActive: true,
+    },
+    {
+      colName: 'Assigned To',
+      key_name: 'assigned_to',
+      width: 10,
+      type: 'list',
+      isActive: true,
+    }
+  ];
+
+
     isLoaderActive : boolean = false
     $onDestroy = new Subject<void>();
     selectedFilter : any;
@@ -47,6 +93,7 @@ export class JobListLandingPageComponent implements OnInit,OnDestroy {
   }
 
   navigateToJobDetail(jobId: number) {
+    console.log(jobId)
       this.router.navigateByUrl(`/job/${jobId}`)
   }
 

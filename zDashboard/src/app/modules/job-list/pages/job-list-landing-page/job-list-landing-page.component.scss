@@ -1,8 +1,16 @@
 .job-list {
 
+    margin-top: 10%;
+
     .table-layout {
         .table-row {
             cursor: pointer;
+        }
+    }
+
+    .title-txt {
+        h3 {
+            color: #fd5000;
         }
     }
 
