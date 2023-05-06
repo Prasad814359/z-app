@@ -2,6 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { JobDetailService } from '../../services/job-detail.service';
 import { ActivatedRoute } from '@angular/router';
+import { takeUntil } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-job-detail-landing-page',
@@ -23,7 +25,13 @@ export class JobDetailLandingPageComponent implements OnInit,OnDestroy {
   getJobDetail(jobId: number) {
     return new Promise((resolve,reject) => {
       let res = this._jobDetailService.getJobDetail(jobId)
-      resolve(res)
+      .pipe(takeUntil(this.$onDestroy))
+      .subscribe((res: any) => {
+        if(!res['err'])
+          resolve(res['data'])
+      },(err) => {
+        reject(err)
+      })
     })
   }
 

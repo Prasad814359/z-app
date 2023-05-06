@@ -10,8 +10,8 @@
           {{selectedFilter ? selectedFilter : 'Select One'}}
         </button>
         <div class="dropdown-menu">
-            <button class="dropdown-item" type="button">
-                Started
+            <button class="dropdown-item" type="button" *ngFor="let s of jobStatusList" (click)="filterApplied(s)">
+                {{s}}
             </button>
         </div>
       </div>

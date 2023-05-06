@@ -3,6 +3,8 @@ import { JobListService } from '../../services/job-list.service';
 import { MainService } from 'src/app/services/main.service';
 import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
+import { takeUntil } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-job-list-landing-page',
@@ -67,11 +69,31 @@ export class JobListLandingPageComponent implements OnInit,OnDestroy {
     $onDestroy = new Subject<void>();
     selectedFilter : any;
     jobList: any = []
+    jobStatusList: any = []
 
     getJobList(status: string) {
       return new Promise((resolve,reject) => {
-        let res = this._jobListService.getJobList(status)
-        resolve(res)
+        this._jobListService.getJobList(status)
+        .pipe(takeUntil(this.$onDestroy))
+        .subscribe((res: any) => {
+          if(!res['err'])
+            resolve(res['data'])
+        },(err) => {
+          console.log(err)
+        })
+      })
+    }
+
+    getJobStatusList() {
+      return new Promise((resolve,reject) => {
+        this._jobListService.jobStatusList()
+        .pipe(takeUntil(this.$onDestroy))
+        .subscribe((res: any) => {
+          if(!res['err'])
+            resolve(res['data'])
+        },(err) => {
+          console.log(err)
+        })
       })
     }
 
@@ -79,6 +101,7 @@ export class JobListLandingPageComponent implements OnInit,OnDestroy {
     this.isLoaderActive = true
     this.resolveObservers()
     this.jobList = await this.getJobList(this.selectedFilter)
+    this.jobStatusList = await this.getJobStatusList()
     console.log(this.jobList)
     this.isLoaderActive = false
   }
@@ -97,7 +120,12 @@ export class JobListLandingPageComponent implements OnInit,OnDestroy {
       this.router.navigateByUrl(`/job/${jobId}`)
   }
 
-  ngOnDestroy(): void {
+  async filterApplied(status:string) {
+    this.jobList = await this.getJobList(status)
+  }
 
+  ngOnDestroy(): void {
+    this.$onDestroy.next()
+    this.$onDestroy.unsubscribe()
   }
 }

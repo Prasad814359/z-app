@@ -1,17 +1,20 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class DashboardService {
 
-  constructor() { }
+  constructor(private _http: HttpClient) { }
 
   getStatusJobCount() {
-    return {
-      err: false,
-      data: { CONFIRMED: 2, ON_MY_WAY: 1, STARTED: 2, COMPLETED: 1, ON_HOLD: 1 }
-    }
+    return this._http.get('http://localhost:3001/api/zDashboard/retrieveDashboardCount')
+    // return {
+    //   err: false,
+    //   data: { CONFIRMED: 2, ON_MY_WAY: 1, STARTED: 2, COMPLETED: 1, ON_HOLD: 1 }
+    // }
   }
 
 }

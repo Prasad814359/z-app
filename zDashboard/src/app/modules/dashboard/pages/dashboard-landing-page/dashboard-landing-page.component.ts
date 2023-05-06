@@ -27,7 +27,12 @@ export class DashboardLandingPageComponent implements OnInit,OnDestroy {
   getStatusCount() {
     return new Promise((resolve,reject) => {
       let res = this._dashboardService.getStatusJobCount()
-      resolve(res['data'])
+      .subscribe((res: any) => {
+        if(!res['err'])
+          resolve(res['data'])
+      },(err) => {
+        reject(err)
+      })
     })
   }
 
