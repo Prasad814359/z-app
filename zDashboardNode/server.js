@@ -21,5 +21,5 @@ const job_route = require('./routes/job.route')
 app.use('/api/zDashboard/',job_route)
 
 app.listen(port, async()=> {
-    console.log(`zDashboard Node started on port ${port}`)
+    console.log(`zDashboard Node is running ${port}`)
 })

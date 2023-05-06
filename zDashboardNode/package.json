@@ -2,10 +2,10 @@
   "name": "zdashboardnode",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "set NODE_ENV=default&&nodemon server.js",
-    "start-serve": "node secretsProcessor.js && nodemon server.js",
+    "start": "node server.js",
+    "serve": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Ram Prasad S",
