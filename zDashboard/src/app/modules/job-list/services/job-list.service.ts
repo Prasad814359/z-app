@@ -10,12 +10,12 @@ export class JobListService {
   constructor(private _http: HttpClient) { }
 
   getJobList(jobStatus: string) {
-    return this._http.post('http://localhost:3001/api/zDashboard/retrieveJobList',{
+    return this._http.post('https://z-app-rolv.onrender.com/api/zDashboard/retrieveJobList',{
       job_status: jobStatus
     })
   }
 
   jobStatusList() {
-    return this._http.get('http://localhost:3001/api/zDashboard/jobStatusList')
+    return this._http.get('https://z-app-rolv.onrender.com/api/zDashboard/jobStatusList')
   }
 }
