@@ -1,7 +1,5 @@
 const express = require('express');
 const app = express();
-const serverless = require('serverless-http')
-
 app.use(express.urlencoded({ limit: '500mb', extended: true }));
 app.use(express.json({ limit: '500mb', extended: true }));
 
@@ -25,5 +23,3 @@ app.use('/api/zDashboard/',job_route)
 app.listen(port, async()=> {
     console.log(`zDashboard Node is running ${port}`)
 })
-
-module.exports.handler = serverless(app)
