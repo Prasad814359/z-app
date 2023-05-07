@@ -7,7 +7,7 @@
     "start": "node server.js",
     "serve": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "netlify deploy --prod"
+    "build": "npm i"
   },
   "author": "Ram Prasad S",
   "license": "ISC",
